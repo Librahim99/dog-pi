@@ -6,10 +6,10 @@ import {
   Route,
   Link
 } from "react-router-dom"
-import LandingPage from './LandingPage'
-import Home from './Home';
-import Detail from './Detail'
-import CreateDog from './CreateDog'
+import LandingPage from './Pages/LandingPage'
+import Home from './Pages/Home';
+import Detail from './Pages/Detail'
+import CreateDog from './Pages/CreateDog'
 
 function App() {
   return (

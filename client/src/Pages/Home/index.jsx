@@ -5,6 +5,7 @@ export default function Home(){
         <>
         <div>Esta es la pagina Home</div>
         <Link to="/home/create"><button>Create Dog</button></Link>
+        <Link to="/home/detail"><button>Dog Detail</button></Link>
         </>
     )
 }
