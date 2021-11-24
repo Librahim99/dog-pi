@@ -17,6 +17,7 @@ server.get('/', async (req, res, next)=>{
             return{
                 id: d.id,
                 name: d.name,
+                image: d.image.url,
                 height: d.height,
                 weight: d.weight,
                 life_span: d.life_span,
@@ -26,8 +27,8 @@ server.get('/', async (req, res, next)=>{
         const allDogs = [...filteredDogsApi, ...dogDb]
         if(req.query.name){
             const name = req.query.name
-            const foundDog = allDogs.find((d) => d.name == name)
-            res.send(foundDog)
+            const foundDog = allDogs.filter((d) => d.name.toUpperCase().includes(name.toUpperCase()))
+                res.send(foundDog)
             }
         else res.send(allDogs)
 
