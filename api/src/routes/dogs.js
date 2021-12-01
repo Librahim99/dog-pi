@@ -81,9 +81,10 @@ server.get('/:id', async (req, res, next)=>{
 // })
 
 server.post('/', (req, res, next)=>{
-    const {name, temperament, height, weight, life_span} = req.body
+    const {name, image, temperament, height, weight, life_span} = req.body
     return Dog.create({
         name, 
+        image,
         // temperament,
         height, 
         weight, 

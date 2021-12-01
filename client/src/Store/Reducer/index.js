@@ -13,12 +13,17 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS } from "../actions";
                 ...state,
                 dogs: action.payload
             }
-       case SEARCH_DOGS:
+        case SEARCH_DOGS:
            return{
-               ...state,
-               dogs: action.payload
+                ...state,
+                dogs: action.payload
            }
+        case DOG_DETAIL:
+            return{
+                ...state,
+                dogs: action.payload
+                }
         default:
-                return state
+            return state
     }
  }

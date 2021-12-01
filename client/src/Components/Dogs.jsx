@@ -9,7 +9,6 @@ export default function Dogs(){
     useEffect(() => {
         dispatch(fetchDogs())
     }, []);
-    console.log(dogs)
     return<div>
             {dogs.map((dog) =>(
              <Dog name={dog.name} image={dog.image} id={dog.id}/>

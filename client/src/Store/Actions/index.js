@@ -18,21 +18,21 @@ export function fetchDogs(){
     }
 }
 
-// export function dogDetail(id){
-//     return function(dispatch){
-//         axios.get('http://localhost:3001/api/dogs')
-//         .then((dogs) =>{
-//             // console.log(dogs)
-//             dispatch({
-//                 type: DOG_DETAIL,
-//                 payload: dogs.data.id
-//             })
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-//     }
-// }
+export function dogDetail(dogId){
+    return function(dispatch){
+        axios.get('http://localhost:3001/api/dogs/' + dogId)
+        .then((dogs) =>{
+            // console.log(dogs)
+            dispatch({
+                type: DOG_DETAIL,
+                payload: dogs.data
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+}
 
 export function searchDogs(search){
     return function(dispatch){
