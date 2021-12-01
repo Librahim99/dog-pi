@@ -12,7 +12,8 @@ export default function Dogs(){
     return(
         <><div>
             {dogs.map((dog) =>{
-            return <Dog name={dog.name} image={dog.image}></Dog>
+                // console.log(dog.id)
+            return <Dog name={dog.name} image={dog.image} id={dog.id}></Dog>
         })}
         </div>
         </>

@@ -1,4 +1,4 @@
-import { FETCH_DOGS } from "../Actions";
+import { DOG_DETAIL, FETCH_DOGS } from "../Actions";
 
  const initialState = {
      dogs: [],
@@ -13,7 +13,12 @@ import { FETCH_DOGS } from "../Actions";
                 ...state,
                 dogs: action.payload
             }
-            default:
+        // case DOG_DETAIL:
+        //     return {
+        //         ...state,
+        //         filteredDogs: action.payload
+        //     }
+        default:
                 return state
     }
  }
