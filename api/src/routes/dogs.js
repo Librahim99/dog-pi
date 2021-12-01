@@ -18,34 +18,54 @@ server.get('/', async (req, res, next)=>{
                 id: d.id,
                 name: d.name,
                 image: d.image.url,
-                height: d.height,
-                weight: d.weight,
-                life_span: d.life_span,
-                temperament:d.temperament
+                temperament:d.temperament,
+                height: d.height.metric,
+                weight: d.weight.metric,
+                life_span: d.life_span
             }
         })
         const allDogs = [...filteredDogsApi, ...dogDb]
         if(req.query.name){
             const name = req.query.name
-            const foundDog = allDogs.filter((d) => d.name.toUpperCase().includes(name.toUpperCase()))
-                res.send(foundDog)
+            const foundDogs = allDogs.filter((d) => d.name.toUpperCase().includes(name.toUpperCase()))
+                if(foundDogs == "")res.send('There is no dog with that name')
+                else res.send(foundDogs)
             }
         else res.send(allDogs)
-
     }
+
     catch{(error)=>{
         next(error)
     }}
 })
 
-server.get('/search' ,async (req, res, next)=>{
-    const name = req.query.name
+server.get('/:id', async (req, res, next)=>{
+    try{
+        const {id} = req.params
     const apiUrl = await axios.get('https://api.thedogapi.com/v1/breeds',{headers:{'x-api-key':`${API_KEY}`}})
         const dogDb = await Dog.findAll({
             include: Temperament,
         })
-   const foundDog = apiUrl.data.find((d) => d.name == name)
-        res.send(foundDog)
+        const DogsApi = apiUrl.data
+        const filteredDogsApi = DogsApi.map((d) => {
+            return{
+                id: d.id,
+                name: d.name,
+                image: d.image.url,
+                temperament:d.temperament,
+                height: d.height.metric,
+                weight: d.weight.metric,
+                life_span: d.life_span
+            }
+        })
+        const allDogs = [...filteredDogsApi, ...dogDb]
+        const foundDog= allDogs.find((d)=> d.id == id)
+            if(!foundDog) res.send('Theres is no breed with that id')
+            else res.send(foundDog)
+    }
+    catch{(error)=>{
+        next(error)
+    }}
 })
 
 // server.get('/', (req, res, next)=>{
@@ -61,9 +81,10 @@ server.get('/search' ,async (req, res, next)=>{
 // })
 
 server.post('/', (req, res, next)=>{
-    const {name, height, weight, life_span} = req.body
+    const {name, temperament, height, weight, life_span} = req.body
     return Dog.create({
         name, 
+        // temperament,
         height, 
         weight, 
         life_span}) 

@@ -15,9 +15,13 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.JSON,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: true
     },
+    // temperament: {
+    //   type: DataTypes.JSON,
+    //   allowNull:true
+    // },
     height: {
       type: DataTypes.JSON,
       allowNull: false
