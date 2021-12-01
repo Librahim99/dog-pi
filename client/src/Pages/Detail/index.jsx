@@ -6,7 +6,6 @@ export default function Detail(){
         <>
         <Link to="/home"><button>Home</button></Link>
         <div>Esta es la pagina Detail</div>
-        <Details></Details>
 </>
     )
 }

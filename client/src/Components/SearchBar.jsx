@@ -1,7 +1,28 @@
+import { useState } from 'react'
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { searchDogs } from '../store/actions';
+
 export default function SearchBar() {
-    return (
-        <><input type="text"/>
-        <button>Search</button>
-        </>
-    )
+    const [search, setSearch] = useState('');
+
+    let dispatch = useDispatch();
+
+    function onSubmit(e){
+        e.preventDefault()
+        dispatch(searchDogs(search))
+    }
+
+    function onInputChange(e){
+        e.preventDefault()
+        setSearch(e.target.value)
+    }
+
+    return <div>
+    <form onSubmit={onSubmit}>
+        <input type="text" onChange={onInputChange}/>
+        <input type='submit' value='Search'/>
+    </form>
+        </div>
+   
 }

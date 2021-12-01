@@ -5,10 +5,8 @@ import NavBar from "../../Components/NavBar";
 export default function Home(){
     return (
         <><div>
-        <div>Esta es la pagina Home</div>
         <NavBar/>
         <Dogs></Dogs>
-        
         </div>
         </>
     )
