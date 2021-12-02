@@ -15,13 +15,13 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-    // temperament: {
-    //   type: DataTypes.JSON,
-    //   allowNull:true
-    // },
+    temperament: {
+      type: DataTypes.JSON,
+      allowNull:true
+    },
     height: {
       type: DataTypes.JSON,
       allowNull: false

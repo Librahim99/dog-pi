@@ -85,7 +85,7 @@ server.post('/', (req, res, next)=>{
     return Dog.create({
         name, 
         image,
-        // temperament,
+        temperament,
         height, 
         weight, 
         life_span}) 
