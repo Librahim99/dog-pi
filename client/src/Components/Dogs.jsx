@@ -4,14 +4,19 @@ import {fetchDogs} from '../store/actions'
 import Dog from './Dog'
 
 export default function Dogs(){
-    let dogs = useSelector((state) => state.dogs)
+    let dogs = useSelector((state) => state.filteredDogs)
     let dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchDogs())
     }, []);
+    if(typeof dogs !== "string"){
     return<div>
-            {dogs.map((dog) =>(
-             <Dog name={dog.name} image={dog.image} id={dog.id}/>
+            {dogs?.map((dog) =>(
+             <Dog name={dog.name} image={dog.image} id={dog.id} weight={dog.weight} temperament={dog.temperament}/>
         ))}
         </div>
+    }
+    else return (
+        <div>There is no dog with that name :/</div>
+    )
 }

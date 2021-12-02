@@ -5,17 +5,20 @@ import { dogDetail, fetchDogs } from "../store/actions";
 import Details from "./Details";
 
 
-export default function Dog({name, image, id}) {
+export default function Dog({name, image, id, weight, temperament}) {
     // function onClick() {
     //     console.log(foundDog)
     // }
     return (
         <div>
+            <h3>{name}</h3>
             <Link 
-            // onClick={onClick} 
-            to={`/home/detail/${id}`}><h3>{name}</h3>
+            to={`/home/detail/${id}`}>
             <img src={image} style={{height:'250px'}} />
             </Link>
+            <h4>Weight: {weight}</h4>
+            <h4>Temperaments: {temperament}</h4>
+
         </div>
     )
 }

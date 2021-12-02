@@ -2,6 +2,8 @@ import axios from 'axios'
 export const FETCH_DOGS = 'FETCH_DOGS'
 export const DOG_DETAIL = 'DOG_DETAIL'
 export const SEARCH_DOGS = 'SEARCH_DOGS'
+export const FETCH_TEMPERAMENTS = 'FETCH_TEMPERAMENTS'
+export const SORT = 'SORT'
 
 export function fetchDogs(){
     return function(dispatch){
@@ -18,14 +20,13 @@ export function fetchDogs(){
     }
 }
 
-export function dogDetail(dogId){
+export function fetchTemperaments(){
     return function(dispatch){
-        axios.get('http://localhost:3001/api/dogs/' + dogId)
-        .then((dogs) =>{
-            // console.log(dogs)
+        axios.get('http://localhost:3001/api/temperaments/')
+        .then((temperaments) =>{
             dispatch({
-                type: DOG_DETAIL,
-                payload: dogs.data
+                type: FETCH_TEMPERAMENTS,
+                payload: temperaments.data
             })
         })
         .catch((error) => {
@@ -33,6 +34,21 @@ export function dogDetail(dogId){
         })
     }
 }
+
+// export function dogDetail(dogId){
+//     return function(dispatch){
+//         axios.get('http://localhost:3001/api/dogs/' + dogId)
+//         .then((dogs) =>{
+//             dispatch({
+//                 type: DOG_DETAIL,
+//                 payload: dogs.data
+//             })
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+//     }
+// }
 
 export function searchDogs(search){
     return function(dispatch){
@@ -46,5 +62,12 @@ export function searchDogs(search){
         .catch((error) => {
             console.log(error)
         })
+    }
+}
+
+export function sort(order){
+    return{
+    type: SORT,
+    payload: order
     }
 }
