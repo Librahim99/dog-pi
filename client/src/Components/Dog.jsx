@@ -16,9 +16,8 @@ export default function Dog({name, image, id, min_weight,max_weight, temperament
             to={`/home/detail/${id}`}>
             <img src={image} style={{height:'250px'}} />
             </Link>
-            <h4>Weight: {min_weight} - {max_weight}</h4>
+            <h4>Min weight: {min_weight} kg.</h4>
             <h4>Temperaments: {temperament}</h4>
-
         </div>
     )
 }

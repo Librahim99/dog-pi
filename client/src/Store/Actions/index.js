@@ -6,6 +6,7 @@ export const FETCH_TEMPERAMENTS = 'FETCH_TEMPERAMENTS'
 export const SORT = 'SORT'
 export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN'
 export const FILTER_BY_TEMP = 'FILTER_BY_TEMP'
+export const SORT_BY_WEIGHT = 'SORT_BY_WEIGHT'
 
 export function fetchDogs(){
     return function(dispatch){
@@ -85,5 +86,11 @@ export function filterByTemp(temp){
     return{
         type: FILTER_BY_TEMP,
         payload: temp
+    }
+}
+export function orderByWeight(order){
+    return{
+        type: SORT_BY_WEIGHT,
+        payload: order
     }
 }

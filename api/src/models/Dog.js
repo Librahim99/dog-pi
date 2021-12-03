@@ -22,7 +22,11 @@ module.exports = (sequelize) => {
       type: DataTypes.JSON,
       allowNull:true
     },
-    height: {
+    min_height: {
+      type: DataTypes.JSON,
+      allowNull: false
+    },
+    max_height: {
       type: DataTypes.JSON,
       allowNull: false
     },

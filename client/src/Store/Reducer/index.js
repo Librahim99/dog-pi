@@ -1,5 +1,5 @@
 import { ASCENDANT } from "../../Const/sort";
-import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP} from "../actions";
+import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP, SORT_BY_WEIGHT} from "../actions";
 
  const initialState = {
      dogs: [],
@@ -77,7 +77,14 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_B
 
             case FILTER_BY_TEMP:
                 let filterByTemp = [...state.dogs]
+                if(action.payload === "-"){
+                    return {
+                        ...state,
+                        filteredDogs: filterByTemp
+                    }
+                }
                 let filteredByTemp = filterByTemp.filter((d) => {
+                    
                     
                     if(d.temperament){
                         if(d.temperament.includes(action.payload)){
@@ -90,6 +97,22 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_B
                     ...state,
                     filteredDogs: filteredByTemp
                 }
+
+                case SORT_BY_WEIGHT:
+                    let orderedByWeightDogs= [...state.dogs]
+                    orderedByWeightDogs= orderedByWeightDogs.sort((a,b)=>{
+                        if(parseInt(a.min_weight) <= parseInt(b.min_weight)){
+                            return action.payload === ASCENDANT ? -1 : 1
+                        }
+                        if(parseInt(a.min_weight) >= parseInt(b.min_weight)){
+                            return action.payload === ASCENDANT ? 1 : -1
+                        }
+                        return 0
+                    })
+                    return{
+                        ...state,
+                        filteredDogs: [...orderedByWeightDogs]
+                    }
 
         default:
             return state

@@ -16,12 +16,18 @@ server.get('/', async (req, res, next)=>{
         const filteredDogsApi = DogsApi.map((d) => {
             let minWeight = d.weight.metric.split(" - ")[0]
             let maxWeight = d.weight.metric.split(" - ")[1]
+            if(minWeight=="NaN"){
+                minWeight = 1
+            }
+            let minHeight = d.height.metric.split(" - ")[0]
+            let maxHeight = d.height.metric.split(" - ")[1]
             return{
                 id: d.id,
                 name: d.name,
                 image: d.image.url,
                 temperament:d.temperament,
-                height: d.height.metric,
+                min_height: minHeight,
+                max_height: maxHeight,
                 min_weight: minWeight,
                 max_weight: maxWeight,
                 life_span: d.life_span
@@ -84,13 +90,15 @@ server.get('/:id', async (req, res, next)=>{
 // })
 
 server.post('/', (req, res, next)=>{
-    const {name, image, temperament, height, weight, life_span} = req.body
+    const {name, image, temperament, min_height, max_height, min_weight, max_weight, life_span} = req.body
     return Dog.create({
         name, 
         image,
         temperament,
-        height, 
-        weight, 
+        min_height, 
+        max_height, 
+        min_weight,
+        max_weight,
         life_span}) 
     .then((newDog) =>{
         res.status(201).json(newDog)

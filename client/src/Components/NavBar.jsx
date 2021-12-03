@@ -5,6 +5,7 @@ import { fetchTemperaments } from "../store/actions";
 import Filter from "./Filter";
 import FilterApiDb from "./FilterApiDb";
 import Order from "./Order";
+import OrderByWeight from "./OrderByWeight";
 import SearchBar from "./SearchBar"
 
 
@@ -19,6 +20,7 @@ export default function NavBar() {
         <div>
             <SearchBar/>
             <Order/>
+            <OrderByWeight/>
             <Filter/>
             <FilterApiDb/>
             <Link to="/home/create"><button>Create Dog</button></Link>

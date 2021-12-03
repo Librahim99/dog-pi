@@ -7,8 +7,10 @@ export default function Create() {
     const [input, setInput] = useState({
         name: null,
         image: null,
-        weight: null,
-        height: null,
+        min_weight: null,
+        max_weight: null,
+        min_height: null,
+        max_height: null,
         life_span:null,
         temperament: null
       });
@@ -25,8 +27,10 @@ export default function Create() {
             const dog={
               name: input.name,
               image: input.image,
-              weight: input.weight,
-              height: input.height,
+              min_weight: input.min_weight,
+              max_weight: input.max_weight,
+              min_height: input.min_height,
+              max_height: input.max_height,
               life_span: input.life_span,
               temperament: input.temperament
             }
@@ -37,12 +41,14 @@ export default function Create() {
                 data: dog
             })
             setInput(({
-                name: null,
-                image: null,
-                weight: null,
-                height: null,
-                life_span:null,
-                temperament: null
+                name: "",
+                image: "",
+                min_weight: "",
+                max_weight: "",
+                min_height: "",
+                max_height: "",
+                life_span:"",
+                temperament: ""
               }))
         }
 
@@ -61,15 +67,26 @@ export default function Create() {
             <p></p>
             </div>
             <div>
-            <label>Weight:</label>
-            <input type="text" placeholder="Type here..." value={input.weight} name="weight" onChange={handleInputChange}/>
+            <label>Min weight:</label>
+            <input type="text" placeholder="Type here..." value={input.min_weight} name="min_weight" onChange={handleInputChange}/>
             <p></p>
             </div>
             <div>
-            <label>Height:</label>
-            <input type="text" placeholder="Type here..." value={input.height} name="height" onChange={handleInputChange}/>
+            <label>Max weight:</label>
+            <input type="text" placeholder="Type here..." value={input.max_weight} name="max_weight" onChange={handleInputChange}/>
             <p></p>
             </div>
+            <div>
+            <label>Min height:</label>
+            <input type="text" placeholder="Type here..." value={input.min_height} name="min_height" onChange={handleInputChange}/>
+            <p></p>
+            </div>
+            <div>
+            <label>Max height:</label>
+            <input type="text" placeholder="Type here..." value={input.max_height} name="max_height" onChange={handleInputChange}/>
+            <p></p>
+            </div>
+            
             <div>
             <label>Life Span:</label>
             <input type="text" placeholder="Type here..." value={input.life_span} name="life_span" onChange={handleInputChange}/>
