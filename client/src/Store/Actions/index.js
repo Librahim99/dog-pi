@@ -4,6 +4,7 @@ export const DOG_DETAIL = 'DOG_DETAIL'
 export const SEARCH_DOGS = 'SEARCH_DOGS'
 export const FETCH_TEMPERAMENTS = 'FETCH_TEMPERAMENTS'
 export const SORT = 'SORT'
+export const FILTER_DOGS = 'FILTER_DOGS'
 
 export function fetchDogs(){
     return function(dispatch){
@@ -69,5 +70,12 @@ export function sort(order){
     return{
     type: SORT,
     payload: order
+    }
+}
+
+export function filter_dogs(origin){
+    return{
+        type: FILTER_DOGS,
+        payload: origin
     }
 }

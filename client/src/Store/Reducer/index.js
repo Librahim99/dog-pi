@@ -1,5 +1,5 @@
 import { ASCENDANT } from "../../Const/sort";
-import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT} from "../actions";
+import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_DOGS} from "../actions";
 
  const initialState = {
      dogs: [],
@@ -42,10 +42,37 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT} from "..
                     }
                     return 0
                 })
-            return{
-                ...state,
-                filteredDogs: [...orderedDogs]
-            }
+                return{
+                    ...state,
+                    filteredDogs: [...orderedDogs]
+                }
+                case FILTER_DOGS:
+                    let filterByOrigin = [...state.dogs]
+                    let filterApiDogs = filterByOrigin.filter((d)=>{ 
+                        if(typeof d.id == "number"){
+                            return d
+                        }})
+                    let filterDbDogs = filterByOrigin.filter((d)=>{ 
+                            if(typeof d.id !== "number"){
+                                return d
+                            }})
+                            if(action.payload == "apiDogs"){
+                                return{
+                                    ...state,
+                                    filteredDogs: filterApiDogs
+                                }
+                            }
+                            else if(action.payload == "dbDogs"){
+                                return {
+                                    ...state,
+                                filteredDogs: filterDbDogs
+                            }
+
+                            }
+                            else return{
+                                ...state,
+                                filteredDogs: filterByOrigin
+                            }
         default:
             return state
     }
