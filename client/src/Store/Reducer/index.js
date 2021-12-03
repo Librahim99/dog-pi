@@ -1,5 +1,5 @@
 import { ASCENDANT } from "../../Const/sort";
-import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP, SORT_BY_WEIGHT} from "../actions";
+import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP, SORT_BY_WEIGHT} from "../Actions";
 
  const initialState = {
      dogs: [],

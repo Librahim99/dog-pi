@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import {fetchDogs} from '../store/actions'
+import {fetchDogs} from "../Store/Actions"
 import Dog from './Dog'
 import Pagination from "./Pagination";
 

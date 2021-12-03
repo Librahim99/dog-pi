@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { searchDogs } from '../store/actions';
+import { searchDogs } from "../Store/Actions";
 
 export default function SearchBar() {
     const [search, setSearch] = useState('');

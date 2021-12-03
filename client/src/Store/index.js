@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore } from 'redux'
 
-import reducer from './reducer'
+import reducer from './Reducer'
 import thunk from 'redux-thunk'
 
 

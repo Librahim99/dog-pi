@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { dogDetail, fetchDogs } from "../store/actions";
+import { dogDetail, fetchDogs } from "../Store/Actions";
 
 
 

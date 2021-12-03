@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import {ASCENDANT, DESCENDANT} from '../Const/sort'
-import { orderByWeight } from '../store/actions'
+import { orderByWeight } from "../Store/Actions"
 
 
 export default function OrderByWeight() {
