@@ -1,5 +1,5 @@
 import { ASCENDANT } from "../../Const/sort";
-import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_DOGS} from "../actions";
+import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP} from "../actions";
 
  const initialState = {
      dogs: [],
@@ -31,6 +31,7 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_D
                 ...state,
                 temperaments: action.payload
                 }
+
         case SORT:
             let orderedDogs= [...state.dogs]
             orderedDogs= orderedDogs.sort((a,b)=>{
@@ -42,37 +43,54 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_D
                     }
                     return 0
                 })
+            return{
+                ...state,
+                filteredDogs: [...orderedDogs]
+            }
+
+        case FILTER_BY_ORIGIN:
+            let filterByOrigin = [...state.dogs]
+            let filterApiDogs = filterByOrigin.filter((d)=>{ 
+                if(typeof d.id == "number"){
+                    return d
+                }})
+            let filterDbDogs = filterByOrigin.filter((d)=>{ 
+                if(typeof d.id !== "number"){
+                    return d
+                }})
+            if(action.payload == "apiDogs"){
                 return{
                     ...state,
-                    filteredDogs: [...orderedDogs]
+                    filteredDogs: filterApiDogs
                 }
-                case FILTER_DOGS:
-                    let filterByOrigin = [...state.dogs]
-                    let filterApiDogs = filterByOrigin.filter((d)=>{ 
-                        if(typeof d.id == "number"){
-                            return d
-                        }})
-                    let filterDbDogs = filterByOrigin.filter((d)=>{ 
-                            if(typeof d.id !== "number"){
-                                return d
-                            }})
-                            if(action.payload == "apiDogs"){
-                                return{
-                                    ...state,
-                                    filteredDogs: filterApiDogs
-                                }
-                            }
-                            else if(action.payload == "dbDogs"){
-                                return {
-                                    ...state,
-                                filteredDogs: filterDbDogs
-                            }
+            }
+            else if(action.payload == "dbDogs"){
+                return {
+                    ...state,
+                filteredDogs: filterDbDogs
+                }
+            }
+            else return{
+                ...state,
+                filteredDogs: filterByOrigin
+            }
 
-                            }
-                            else return{
-                                ...state,
-                                filteredDogs: filterByOrigin
-                            }
+            case FILTER_BY_TEMP:
+                let filterByTemp = [...state.dogs]
+                let filteredByTemp = filterByTemp.filter((d) => {
+                    
+                    if(d.temperament){
+                        if(d.temperament.includes(action.payload)){
+                            return d
+                        }
+                    }
+                    
+                })
+                return{
+                    ...state,
+                    filteredDogs: filteredByTemp
+                }
+
         default:
             return state
     }

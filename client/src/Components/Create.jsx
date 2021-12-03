@@ -77,12 +77,11 @@ export default function Create() {
             </div>
             <div>
             <label>Temperament:</label>
-            <select name="temperament" onChange={handleInputChange}  value={input.temperament} >
+            <select name="temperament" onChange={handleInputChange} value={input.temperament} >
                 <option  value="none">None</option>
                 {temperaments.map((t)=>{
                     return <option value={t.name}>{t.name}</option>
                 })}
-
             </select>
             {/* <label>Temperament:</label>
             <input type="text" placeholder="Type here..." value={input.temperament} name="temperament" onChange={handleInputChange}/> */}

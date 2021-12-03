@@ -14,13 +14,16 @@ server.get('/', async (req, res, next)=>{
         })
         const DogsApi = apiUrl.data
         const filteredDogsApi = DogsApi.map((d) => {
+            let minWeight = d.weight.metric.split(" - ")[0]
+            let maxWeight = d.weight.metric.split(" - ")[1]
             return{
                 id: d.id,
                 name: d.name,
                 image: d.image.url,
                 temperament:d.temperament,
                 height: d.height.metric,
-                weight: d.weight.metric,
+                min_weight: minWeight,
+                max_weight: maxWeight,
                 life_span: d.life_span
             }
         })

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { filter_dogs } from "../store/actions";
+import { filterByOrigin } from "../store/actions";
 
 export default function FilterApiDb() {
     const dispatch= useDispatch()
     function onChange(e){
-        dispatch(filter_dogs(e.target.value))
+        dispatch(filterByOrigin(e.target.value))
     }
         
         

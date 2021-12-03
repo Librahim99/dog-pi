@@ -1,24 +1,26 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { fetchTemperaments } from "../store/actions";
+import { fetchTemperaments, filterByTemp } from "../store/actions";
 
 
 
 export default function Filter() {
     let temperaments = useSelector((state) => state.temperaments)
-    let dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchTemperaments())
-    }, []);
+    const dispatch= useDispatch()
+    function onChange(e){
+        dispatch(filterByTemp(e.target.value))
+    }
 
-    
 
     return (
-        <select name="temperament" id="">
-        <option value="title">Temperament</option>
+        <div>
+<label>Temperament: </label>
+        <select name="temperament" onChange={onChange}>
+        <option value="title">Select</option>
         {temperaments.map((t)=>{
-            return <option value="">{t.name}</option>
+            return <option value={t.name}>{t.name}</option>
         })}
      </select>
+        </div>
     )
 }

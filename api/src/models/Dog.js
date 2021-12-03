@@ -26,7 +26,11 @@ module.exports = (sequelize) => {
       type: DataTypes.JSON,
       allowNull: false
     },
-    weight: {
+    min_weight: {
+      type: DataTypes.JSON,
+      allowNull: false
+    },
+    max_weight: {
       type: DataTypes.JSON,
       allowNull: false
     },

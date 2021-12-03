@@ -19,7 +19,8 @@ export default function Details() {
         </div>
         <img src={foundDog.image} alt={foundDog.name} style={{height:'400px'}}/>
         <h3>Heigth: {foundDog.height} cm.</h3>
-        <h3>Weight: {foundDog.weight} </h3>
+        <h3>Min weight: {foundDog.min_weight} </h3>
+        <h3>Max weight: {foundDog.max_weight} </h3>
         <h3>Life span: {foundDog.life_span}.</h3>
         <h3>Temperament: {foundDog.temperament}
             {/* {foundDog.temperament.split(", ").map((t)=> {

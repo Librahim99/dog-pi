@@ -5,7 +5,7 @@ import { dogDetail, fetchDogs } from "../store/actions";
 import Details from "./Details";
 
 
-export default function Dog({name, image, id, weight, temperament}) {
+export default function Dog({name, image, id, min_weight,max_weight, temperament}) {
     // function onClick() {
     //     console.log(foundDog)
     // }
@@ -16,7 +16,7 @@ export default function Dog({name, image, id, weight, temperament}) {
             to={`/home/detail/${id}`}>
             <img src={image} style={{height:'250px'}} />
             </Link>
-            <h4>Weight: {weight}</h4>
+            <h4>Weight: {min_weight} - {max_weight}</h4>
             <h4>Temperaments: {temperament}</h4>
 
         </div>

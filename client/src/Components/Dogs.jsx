@@ -12,7 +12,7 @@ export default function Dogs(){
     if(typeof dogs !== "string"){
     return<div>
             {dogs?.map((dog) =>(
-             <Dog name={dog.name} image={dog.image} id={dog.id} weight={dog.weight} temperament={dog.temperament}/>
+             <Dog name={dog.name} image={dog.image} id={dog.id} min_weight={dog.min_weight} max_weight={dog.max_weight} temperament={dog.temperament}/>
         ))}
         </div>
     }

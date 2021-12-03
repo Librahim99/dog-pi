@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom"
+import { fetchTemperaments } from "../store/actions";
 import Filter from "./Filter";
 import FilterApiDb from "./FilterApiDb";
 import Order from "./Order";
@@ -6,16 +9,15 @@ import SearchBar from "./SearchBar"
 
 
 export default function NavBar() {
+    let temperaments = useSelector((state) => state.temperaments)
+    let dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchTemperaments())
+    }, []);
+
     return (
         <div>
             <SearchBar/>
-            <select name="filter">
-            <option value="title" selected>Filter</option>
-            <option value="name">Name</option>
-            <option value="weight">Weight</option>
-            <option value="height">Height</option>
-            <option value="life_span">Life Span</option>
-            </select>
             <Order/>
             <Filter/>
             <FilterApiDb/>

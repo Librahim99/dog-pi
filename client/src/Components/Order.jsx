@@ -10,9 +10,12 @@ export default function Order() {
     }
 
     return (
+        <div>
+        <label>Alphabetically: </label>
         <select name="order" onChange={onOrderChange}>
             <option value={ASCENDANT}>Ascendant</option>
             <option value={DESCENDANT}>Descendant</option>
             </select>
+        </div>
     )
 }
