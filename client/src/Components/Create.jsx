@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTemperaments } from "../store/actions";
+import { fetchTemperaments } from "../Store/Actions";
 import CreateTemp from "./CreateTemp";
 
 export default function Create() {
