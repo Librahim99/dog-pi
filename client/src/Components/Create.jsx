@@ -1,9 +1,16 @@
 import axios from "axios";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTemperaments } from "../store/actions";
+import CreateTemp from "./CreateTemp";
 
 export default function Create() {
     let temperaments = useSelector((state) => state.temperaments)
+    let dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchTemperaments())
+    }, []);
+
     const [input, setInput] = useState({
         name: null,
         image: null,
@@ -16,7 +23,6 @@ export default function Create() {
       });
       
       const handleInputChange = function(e) {
-          e.preventDefault()
           setInput({
               ...input,
               [e.target.name]: e.target.value
@@ -48,13 +54,13 @@ export default function Create() {
                 min_height: "",
                 max_height: "",
                 life_span:"",
-                temperament: ""
+                temperament: null
               }))
         }
 
         
     
-    return (
+    return (<>
         <form onSubmit={onSubmit}>
             <div>
             <label>Name:</label>
@@ -94,17 +100,19 @@ export default function Create() {
             </div>
             <div>
             <label>Temperament:</label>
-            <select name="temperament" onChange={handleInputChange} value={input.temperament} >
-                <option  value="none">None</option>
+            <select name="temperament" multiple onChange={handleInputChange} >
+                {/* <option  value="none">None</option> */}
+                {/* value={input.temperament} */}
                 {temperaments.map((t)=>{
-                    return <option value={t.name}>{t.name}</option>
+                    return <option value={t.name} >{t.name}</option>
                 })}
             </select>
-            {/* <label>Temperament:</label>
-            <input type="text" placeholder="Type here..." value={input.temperament} name="temperament" onChange={handleInputChange}/> */}
+            <p></p>
             <p></p>
             </div>            
-            <button type="submit" >Create</button>
+            <button >Create</button>
         </form>
+            <CreateTemp/>
+            </>
     )
 }

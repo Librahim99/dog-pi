@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 function LandingPage(){
     return(
-        <Link to="/home"><button>Home</button></Link>
+        <Link to="/home/1"><button>Home</button></Link>
     )
 }
 

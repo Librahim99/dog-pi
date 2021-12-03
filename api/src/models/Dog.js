@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
     },
     temperament: {
       type: DataTypes.JSON,
-      allowNull:true
+      allowNull:false
     },
     min_height: {
       type: DataTypes.JSON,
