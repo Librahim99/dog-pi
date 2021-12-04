@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import { fetchDogs } from "../Store/Actions";
 import Dog from "./Dog"
 
 export default function Pagination() {
-    //  let {pageId} = useParams()
     let dogs = useSelector((state) => state.filteredDogs)
     let dispatch = useDispatch();
     useEffect(() => {
@@ -48,7 +45,7 @@ if(typeof dogsPages !== "string"){
     return (<>
         <div>
             {dogsPages.map((dog) =>(
-                <Dog name={dog.name} image={dog.image} id={dog.id} min_weight={dog.min_weight} max_weight={dog.max_weight} temperament={dog.temperament}/>
+                <Dog name={dog.name} image={dog.image} id={dog.id} min_weight={dog.min_weight} max_weight={dog.max_weight} life_span={dog.life_span} temperament={dog.temperament}/>
                 ))}
         </div>
         <div>

@@ -1,5 +1,5 @@
 import { ASCENDANT } from "../../Const/sort";
-import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP, SORT_BY_WEIGHT} from "../Actions";
+import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP, SORT_BY_WEIGHT, SORT_BY_HEIGHT, SORT_BY_LIFE_SPAN} from "../Actions";
 
  const initialState = {
      dogs: [],
@@ -16,16 +16,19 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_B
                 dogs: action.payload,
                 filteredDogs: action.payload
             }
+
         case SEARCH_DOGS:
            return{
                 ...state,
                 filteredDogs: action.payload
            }
+
         case DOG_DETAIL:
             return{
                 ...state,
                 dogs: action.payload
                 }
+
         case FETCH_TEMPERAMENTS:
             return{
                 ...state,
@@ -58,13 +61,13 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_B
                 if(typeof d.id !== "number"){
                     return d
                 }})
-            if(action.payload == "apiDogs"){
+            if(action.payload === "apiDogs"){
                 return{
                     ...state,
                     filteredDogs: filterApiDogs
                 }
             }
-            else if(action.payload == "dbDogs"){
+            else if(action.payload === "dbDogs"){
                 return {
                     ...state,
                 filteredDogs: filterDbDogs
@@ -75,44 +78,73 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_B
                 filteredDogs: filterByOrigin
             }
 
-            case FILTER_BY_TEMP:
-                let filterByTemp = [...state.dogs]
-                if(action.payload === "-"){
-                    return {
-                        ...state,
-                        filteredDogs: filterByTemp
-                    }
-                }
-                let filteredByTemp = filterByTemp.filter((d) => {
-                    
-                    
-                    if(d.temperament){
-                        if(d.temperament.includes(action.payload)){
-                            return d
-                        }
-                    }
-                    
-                })
-                return{
+        case FILTER_BY_TEMP:
+            let filterByTemp = [...state.dogs]
+            if(action.payload === "-"){
+                return {
                     ...state,
-                    filteredDogs: filteredByTemp
+                    filteredDogs: filterByTemp
                 }
-
-                case SORT_BY_WEIGHT:
-                    let orderedByWeightDogs= [...state.dogs]
-                    orderedByWeightDogs= orderedByWeightDogs.sort((a,b)=>{
-                        if(parseInt(a.min_weight) <= parseInt(b.min_weight)){
-                            return action.payload === ASCENDANT ? -1 : 1
-                        }
-                        if(parseInt(a.min_weight) >= parseInt(b.min_weight)){
-                            return action.payload === ASCENDANT ? 1 : -1
-                        }
-                        return 0
-                    })
-                    return{
-                        ...state,
-                        filteredDogs: [...orderedByWeightDogs]
+            }
+            let filteredByTemp = filterByTemp.filter((d) => {
+                if(d.temperament){
+                    if(d.temperament.includes(action.payload)){
+                        return d
                     }
+                }
+            })
+            return{
+                ...state,
+                filteredDogs: filteredByTemp
+            }
+
+        case SORT_BY_WEIGHT:
+            let orderedByWeightDogs= [...state.dogs]
+            orderedByWeightDogs= orderedByWeightDogs.sort((a,b)=>{
+                if(parseInt(a.min_weight) <= parseInt(b.min_weight)){
+                    return action.payload === ASCENDANT ? -1 : 1
+                }
+                if(parseInt(a.min_weight) >= parseInt(b.min_weight)){
+                    return action.payload === ASCENDANT ? 1 : -1
+                }
+                return 0
+            })
+            return{
+                ...state,
+                filteredDogs: [...orderedByWeightDogs]
+            }
+
+        case SORT_BY_HEIGHT:
+        let orderedByHeightDogs= [...state.dogs]
+        orderedByHeightDogs= orderedByHeightDogs.sort((a,b)=>{
+            if(parseInt(a.min_height) <= parseInt(b.min_height)){
+                return action.payload === ASCENDANT ? -1 : 1
+            }
+            if(parseInt(a.min_height) >= parseInt(b.min_height)){
+                return action.payload === ASCENDANT ? 1 : -1
+            }
+            return 0
+        })
+        return{
+            ...state,
+            filteredDogs: [...orderedByHeightDogs]
+        }
+
+        case SORT_BY_LIFE_SPAN :
+        let orderedByLifeSpanDogs= [...state.dogs]
+        orderedByLifeSpanDogs= orderedByLifeSpanDogs.sort((a,b)=>{
+            if(parseInt(a.life_span.split(" ")[0]) <= parseInt(b.life_span.split(" ")[0])){
+                return action.payload === ASCENDANT ? -1 : 1
+            }
+            if(parseInt(a.life_span.split(" ")[0]) >= parseInt(b.life_span.split(" ")[0])){
+                return action.payload === ASCENDANT ? 1 : -1
+            }
+            return 0
+        })
+        return{
+            ...state,
+            filteredDogs: [...orderedByLifeSpanDogs]
+        }
 
         default:
             return state

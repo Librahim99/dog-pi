@@ -13,7 +13,7 @@ export default function CreateTemp() {
     }
 
     const onTempSubmit =function(e){
-        // e.preventDefault()
+        e.preventDefault()
 
         axios({
             method: "POST",

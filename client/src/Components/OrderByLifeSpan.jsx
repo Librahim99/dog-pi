@@ -1,17 +1,16 @@
 import { useDispatch } from 'react-redux'
 import {ASCENDANT, DESCENDANT} from '../Const/sort'
-import { orderByWeight } from "../Store/Actions"
+import { orderByLifeSpan } from "../Store/Actions"
 
-
-export default function OrderByWeight() {
+export default function OrderByLifeSpan() {
     const dispatch= useDispatch()
     function onOrderChange(e){
-        dispatch(orderByWeight(e.target.value))
+        dispatch(orderByLifeSpan(e.target.value))
     }
 
     return (
         <div>
-        <label>By weight: </label>
+        <label>By life span: </label>
         <select name="order" onChange={onOrderChange}>
         <option value="-" selected>Choose an option</option>
             <option value={ASCENDANT}>Ascendant</option>

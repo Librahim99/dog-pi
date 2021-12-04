@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { fetchTemperaments, filterByTemp } from "../Store/Actions";
+import { filterByTemp } from "../Store/Actions"
 
 
 
@@ -10,13 +9,11 @@ export default function Filter() {
     function onChange(e){
         dispatch(filterByTemp(e.target.value))
     }
-
-
     return (
         <div>
-<label>Temperament: </label>
+        <label>Temperament: </label>
         <select name="temperament" onChange={onChange}>
-        <option value="-">Select</option>
+        <option value="-">Choose an option</option>
         {temperaments.map((t)=>{
             return <option value={t.name}>{t.name}</option>
         })}

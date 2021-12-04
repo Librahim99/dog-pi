@@ -4,7 +4,7 @@ import Details from "../../Components/Details";
 export default function Detail(){
     return(
         <>
-        <Link to="/home/1"><button>Home</button></Link>
+        <Link to="/home"><button>Home</button></Link>
         <Details></Details>
 </>
     )

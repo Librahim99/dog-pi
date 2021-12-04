@@ -1,6 +1,4 @@
-import axios from "axios"
-import { useSelector } from "react-redux"
-import { useParams } from "react-router"
+
 
 
 

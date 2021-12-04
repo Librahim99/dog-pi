@@ -1,15 +1,12 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { dogDetail, fetchDogs } from "../Store/Actions";
+import { useSelector } from "react-redux"
 
 
 
 export default function Details() {
     const {dogId} = useParams();
     let dogs = useSelector((state) => state.dogs)
-    const foundDog = dogs.find((dog) => dog.id == dogId)
+    const foundDog = dogs.find((dog) => dog.id === dogId)
     return (
         <>
         <div>
