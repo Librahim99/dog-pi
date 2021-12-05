@@ -54,11 +54,7 @@ export default function Details() {
         <h3>Min height: {foundDog.min_height} cm.</h3>
         <h3>Max height: {foundDog.max_height} cm.</h3>
         <h3>Life span: {foundDog.life_span}.</h3>
-        <h3>Temperament: {foundDog.temperament}
-            {/* {foundDog.temperament.split(", ").map((t)=> {
-            return <Link to={`/home/temperament/${t}`}>{<button>{t}</button>}</Link>
-            })} */}
-        </h3>
+        <h3>Temperament: {foundDog.temperament}</h3>
         </>
     )
 }
