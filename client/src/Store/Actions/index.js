@@ -9,6 +9,8 @@ export const FILTER_BY_TEMP = 'FILTER_BY_TEMP'
 export const SORT_BY_WEIGHT = 'SORT_BY_WEIGHT'
 export const SORT_BY_HEIGHT = 'SORT_BY_HEIGHT'
 export const SORT_BY_LIFE_SPAN = 'SORT_BY_LIFE_SPAN'
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES'
+export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES'
 
 export function fetchDogs(){
     return function(dispatch){
@@ -106,5 +108,19 @@ export function orderByLifeSpan(order){
     return{
         type: SORT_BY_LIFE_SPAN,
         payload: order
+    }
+}
+
+export function addToFavorites(dog){
+    return{
+        type: ADD_TO_FAVORITES,
+        payload: dog
+    }
+}
+
+export function removeFromFavorites(dog){
+    return{
+        type: REMOVE_FROM_FAVORITES,
+        payload: dog
     }
 }

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom"
+import Favorites from "../Pages/Favorites/Favorites";
 import { fetchTemperaments } from "../Store/Actions";
 import Filter from "./Filter";
 import FilterApiDb from "./FilterApiDb";
@@ -27,6 +28,7 @@ export default function NavBar() {
             <OrderByLifeSpan/>
             <Filter/>
             <FilterApiDb/>
+            <Link to="/home/favorites"><button>Favorites</button></Link>
             <Link to="/home/create"><button>Create Dog</button></Link>
         </div>
     )

@@ -1,10 +1,12 @@
+/* eslint-disable array-callback-return */
 import { ASCENDANT } from "../../Const/sort";
-import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP, SORT_BY_WEIGHT, SORT_BY_HEIGHT, SORT_BY_LIFE_SPAN} from "../Actions";
+import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FILTER_BY_TEMP, SORT_BY_WEIGHT, SORT_BY_HEIGHT, SORT_BY_LIFE_SPAN, ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES} from "../Actions";
 
  const initialState = {
      dogs: [],
      filteredDogs: [],
-     temperaments: []
+     temperaments: [],
+     favorites: []
  }
 
  export default function reducer(state= initialState, action){
@@ -146,6 +148,30 @@ import { DOG_DETAIL, FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_B
             filteredDogs: [...orderedByLifeSpanDogs]
         }
 
+        case ADD_TO_FAVORITES:
+            let addFavorites = [...state.favorites]
+            
+            
+            if(!(addFavorites.find((f) => f.id === action.payload.id))){
+                addFavorites.push(action.payload)
+            }
+            return{
+                ...state,
+                favorites: addFavorites
+            }
+
+        case REMOVE_FROM_FAVORITES:
+            let removeFavorites = [...state.favorites]
+            let newFavorites = []
+            for (let i = 0; i < removeFavorites.length; i++) {
+                if(removeFavorites[i].id !== action.payload.id){
+                    newFavorites.push(removeFavorites[i])
+                }
+            }
+            return{
+                ...state,
+                favorites: newFavorites
+            }
         default:
             return state
     }

@@ -18,33 +18,14 @@ export default function Create() {
         min_height: null,
         max_height: null,
         life_span:null,
-        temperament: null
+        temperament: ""
     });
 
     const validate= function(input){
         let errors= {}
-        if(!input.name){
-            errors.name = "this field can't be empty"
+        if(!input.name || !input.image || !input.min_weight || !input.max_weight || !input.min_height || !input.max_height || !input.life_span ){
+            errors.msg = "all fields must be completed"
         }
-        if(!input.image){
-            errors.image = "this field can't be empty"
-        }
-        if(!input.min_weight){
-            errors.min_weight = "this field can't be empty"
-        }
-        if(!input.max_weight){
-            errors.max_weight = "this field can't be empty"
-        }
-        if(!input.min_height){
-            errors.min_height = "this field can't be empty"
-        }
-        if(!input.max_height){
-            errors.max_height = "this field can't be empty"
-        }
-        if(!input.life_span){
-            errors.life_span = "this field can't be empty"
-        }
-
         return errors
     }
 
@@ -95,11 +76,7 @@ export default function Create() {
             temperament: null
             }))
     }
-    const disableButton = function(){
-        if(input.name !== "" || input.image !== "" || input.min_weight !== "" || input.max_weight!== "" || input.min_height !== "" ||input.max_height!== "" || input.life_span !== "" || input.temperament !== null){
-            return "false"
-        } else return "true"
-    }
+    
 
    
         
@@ -109,38 +86,37 @@ export default function Create() {
             <div>
             <label>Name:</label>
             <input type="text" placeholder="Type here..." value={input.name} name="name" onChange={handleInputChange}/>
-
-            <p>{errors.name}</p>
+            <p></p>
             </div>
             <div>
             <label>Image:</label>
             <input type="text" placeholder="Type here..." value={input.image} name="image" onChange={handleInputChange}/>
-            <p>{errors.image}</p>
+            <p></p>
             </div>
             <div>
             <label>Min weight:</label>
             <input type="text" placeholder="Type here..." value={input.min_weight} name="min_weight" onChange={handleInputChange}/>
-            <p>{errors.min_weight}</p>
+            <p></p>
             </div>
             <div>
             <label>Max weight:</label>
             <input type="text" placeholder="Type here..." value={input.max_weight} name="max_weight" onChange={handleInputChange}/>
-            <p>{errors.max_weight}</p>
+            <p></p>
             </div>
             <div>
             <label>Min height:</label>
             <input type="text" placeholder="Type here..." value={input.min_height} name="min_height" onChange={handleInputChange}/>
-            <p>{errors.min_height}</p>
+            <p></p>
             </div>
             <div>
             <label>Max height:</label>
             <input type="text" placeholder="Type here..." value={input.max_height} name="max_height" onChange={handleInputChange}/>
-            <p>{errors.max_height}</p>
+            <p></p>
             </div>
             <div>
             <label>Life Span:</label>
             <input type="text" placeholder="Type here..." value={input.life_span} name="life_span" onChange={handleInputChange}/>
-            <p>{errors.life_span}</p>
+            <p></p>
             </div>
             <div>
             <label>Temperament:</label>
@@ -148,10 +124,11 @@ export default function Create() {
                 {temperaments.map((t)=>{
                     return <option value={t.name} >{t.name}</option>
                 })}
-            </select>
+            </select> 
             <p></p>
+            <p>{errors.msg}</p>
             </div>            
-            <button disable={disableButton()}>Create</button>
+            <button type="submit" disabled={errors.msg !== undefined ? true : false}>Create</button>
         </form>
             <CreateTemp/>
             </>

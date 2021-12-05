@@ -15,7 +15,7 @@ export default function Filter() {
         <select name="temperament" onChange={onChange}>
         <option value="-">Choose an option</option>
         {temperaments.map((t)=>{
-            return <option value={t.name}>{t.name}</option>
+            return <option key={t.id} value={t.name}>{t.name}</option>
         })}
      </select>
         </div>

@@ -45,7 +45,7 @@ if(typeof dogsPages !== "string"){
     return (<>
         <div>
             {dogsPages.map((dog) =>(
-                <Dog name={dog.name} image={dog.image} id={dog.id} min_weight={dog.min_weight} max_weight={dog.max_weight} life_span={dog.life_span} temperament={dog.temperament}/>
+                <Dog key={dog.name} name={dog.name} image={dog.image} id={dog.id} min_weight={dog.min_weight} max_weight={dog.max_weight} life_span={dog.life_span} temperament={dog.temperament}/>
                 ))}
         </div>
         <div>
