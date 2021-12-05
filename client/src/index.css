@@ -1,3 +1,10 @@
+:root{
+  --fondo: #ebe5e6;
+  --verdeClaro: #8bc2a1;
+  --verdeOscuro: #438644;
+  --verdeOscuroTrans: #43864433;
+  --Azul: #75b4c0;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--fondo);
 }
 
 code {
@@ -23,7 +31,7 @@ code {
  */
 
  html {
-  line-height: 1.15; /* 1 */
+  line-height: 1; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
@@ -53,7 +61,6 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
 }
 
 /* Grouping content

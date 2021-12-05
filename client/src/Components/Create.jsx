@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -90,7 +91,7 @@ export default function Create() {
             </div>
             <div>
             <label>Image:</label>
-            <input type="text" placeholder="Type here..." value={input.image} name="image" onChange={handleInputChange}/>
+            <input type="text" placeholder="Paste URL here..." value={input.image} name="image" onChange={handleInputChange}/>
             <p></p>
             </div>
             <div>

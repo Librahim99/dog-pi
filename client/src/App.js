@@ -1,4 +1,4 @@
-import './App.css';
+import s from './App.module.css'
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -9,21 +9,18 @@ import LandingPage from './Pages/LandingPage'
 import Home from './Pages/Home';
 import Detail from './Pages/Detail'
 import CreateDog from './Pages/CreateDog'
-import { Temperament } from './Pages/Temperament';
 import Favorites from './Pages/Favorites/Favorites';
 
 function App() {
   return (
     <Router>
-      <main>
+      <main className={s.main}>
     <Routes>
       <Route exact path="/" element={<LandingPage/>}/>
     <Route path="/home/" element={<Home/>}/>
     <Route path="/home/favorites" element={<Favorites/>}/>
-    <Route path="/home/:pageId" element={<Home/>}/>
       <Route path="/home/detail/:dogId" element={<Detail/>}/>
       <Route exact path="/home/create" element={<CreateDog/>}/>
-      <Route path="/home/temperament/:dogTemperament" element={<Temperament/>}></Route>
     </Routes>
       </main>
     </Router>

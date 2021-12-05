@@ -11,9 +11,8 @@ export default function Filter() {
     }
     return (
         <div>
-        <label>Temperament: </label>
         <select name="temperament" onChange={onChange}>
-        <option value="-">Choose an option</option>
+        <option value="-">Temperament</option>
         {temperaments.map((t)=>{
             return <option key={t.id} value={t.name}>{t.name}</option>
         })}
