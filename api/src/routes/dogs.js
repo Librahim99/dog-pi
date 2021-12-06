@@ -77,18 +77,6 @@ server.get('/:id', async (req, res, next)=>{
     }}
 })
 
-// server.get('/', (req, res, next)=>{
-//     return Dog.findAll({ 
-//         include: Temperament
-//     })
-//     .then((dog)=>{ 
-//         res.json(dog)
-//     })
-//     .catch((error) =>{
-//         next(error)
-//     })
-// })
-
 server.post('/', (req, res, next)=>{
     const {name, image, temperament, min_height, max_height, min_weight, max_weight, life_span} = req.body
     return Dog.create({
@@ -119,11 +107,5 @@ server.post('/:dogID/temperament/:temperamentID/', (req, res, next) =>{
 })
 })
 
-server.delete('/', (req, res, next)=>{
-    res.send('DELETE dogs')
-})
 
-server.put('/', (req, res, next)=>{
-    res.send('PUTx dogs')
-})
 module.exports = server;

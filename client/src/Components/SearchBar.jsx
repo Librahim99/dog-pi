@@ -12,6 +12,7 @@ export default function SearchBar() {
     function onSubmit(e){
         e.preventDefault()
         dispatch(searchDogs(search))
+        setSearch('')
     }
 
     function onInputChange(e){

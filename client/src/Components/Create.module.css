@@ -1,0 +1,34 @@
+.FormDiv{
+    background-color: var(--verdeClaro);
+    position: relative;
+    width: 75%;
+    left: 50%;
+    margin-left: -37.5%;
+    height: 550px;
+    padding: 0;
+    border-radius: 100px;
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.FormDiv input{
+    height: 22px;
+    border: 1px solid black;
+    background: none;
+    border-radius: 10px;
+    margin: 0 5px;
+    padding: 0 10px;
+}
+.FormDiv h1{
+    margin: 0;
+    padding: 0;
+}
+.FormDiv button{
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}

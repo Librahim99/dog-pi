@@ -148,3 +148,8 @@ right: 50px;
     background: var(--verdeOscuroTrans);
     transition: background .5s;
 }
+
+select option {
+    background:var(--verdeOscuroTrans);
+}
+

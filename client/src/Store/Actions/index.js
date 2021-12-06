@@ -1,6 +1,5 @@
 import axios from 'axios'
 export const FETCH_DOGS = 'FETCH_DOGS'
-export const DOG_DETAIL = 'DOG_DETAIL'
 export const SEARCH_DOGS = 'SEARCH_DOGS'
 export const FETCH_TEMPERAMENTS = 'FETCH_TEMPERAMENTS'
 export const SORT = 'SORT'
@@ -41,21 +40,6 @@ export function fetchTemperaments(){
         })
     }
 }
-
-// export function dogDetail(dogId){
-//     return function(dispatch){
-//         axios.get('http://localhost:3001/api/dogs/' + dogId)
-//         .then((dogs) =>{
-//             dispatch({
-//                 type: DOG_DETAIL,
-//                 payload: dogs.data
-//             })
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-//     }
-// }
 
 export function searchDogs(search){
     return function(dispatch){

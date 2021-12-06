@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState } from "react"
 
+
 export default function CreateTemp() {
     const [input, setInput] = useState({
-        name:null
+        name:""
     })
     
     

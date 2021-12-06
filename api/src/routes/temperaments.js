@@ -8,7 +8,6 @@ const server = Router();
 
 server.get('/', async (req, res) => {
     const apiUrl = await axios.get('https://api.thedogapi.com/v1/breeds', {headers: {'x-api-key': `${API_KEY}`}});
-    // const temperamentsDb= await Temperament.findAll()
     const temperament = apiUrl.data.map(element => element.temperament)
     let temperaments = temperament.toString().trim().split(/\s*,\s*/);
     let splittemperament = temperaments.filter(word => word.length > 0);
@@ -20,21 +19,6 @@ server.get('/', async (req, res) => {
     const allTemperament = await Temperament.findAll();
     res.send(allTemperament);
 })
-
-
-
-// server.get('/', (req, res, next)=>{
-//     return Temperament.findAll({
-//         include: Dog
-//     }
-//     )
-//     .then((temperament) =>{
-//         res.json(temperament)
-//     })
-//     .catch((error) =>{
-//         next(error)
-//     })
-// })
 
 server.post('/', (req, res, next)=>{
     const{name} = req.body

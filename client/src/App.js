@@ -1,4 +1,3 @@
-import s from './App.module.css'
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -14,7 +13,7 @@ import Favorites from './Pages/Favorites/Favorites';
 function App() {
   return (
     <Router>
-      <main className={s.main}>
+      <main>
     <Routes>
       <Route exact path="/" element={<LandingPage/>}/>
     <Route path="/home/" element={<Home/>}/>

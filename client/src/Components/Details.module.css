@@ -1,0 +1,59 @@
+.DetailsDiv{
+    background-color: var(--verdeClaro);
+    position: relative;
+    width: 75%;
+    left: 50%;
+    margin-left: -37.5%;
+    display: flex;
+    flex-direction: column;
+    height: 550px;
+    justify-content: space-around;
+    padding: 0;
+    border-radius: 100px;
+    margin-top: 50px;
+}
+.DetailsDiv h1{
+    margin: 0;
+    padding: 0;
+}
+.titleDetails button{
+   margin-left: 20px;
+   border: none;
+   background: none;
+   font-size: 32px;
+   color: var(--verdeOscuro);
+   padding: 0;
+   position: relative;
+   bottom: 3px;
+   cursor: pointer;
+}
+
+.titleDetails button:hover{
+    color: #000;
+    transition: color .3s;
+}
+
+.DetailsDiv h3{
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+.DetailsDiv img{
+    position: relative;
+    height: 250px;
+    width: 350px;
+    object-fit: cover;
+    left: 50%;
+    margin-left: -175px;
+    box-shadow: 0px 4px 40px #000;
+    border-radius: 30px;
+}
+
+
+.titleDetails{
+position: relative;
+margin: 0;
+display: flex;
+justify-content: center;
+}

@@ -1,0 +1,67 @@
+.DogCard{
+    background-color: var(--verdeClaro);
+    position: relative;
+    height: 320px;
+    width: 75%;
+    display: flex;
+    border: 2px solid var(--verdeOscuro);
+    border-radius: 40px;
+    left: 50%;
+    margin-left: -37.5%;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.titleImg{
+    border-right: solid 1px var(--verdeOscuro);
+display: flex;
+flex-direction: column;
+justify-content: center;
+position: relative;
+padding: 0;
+}
+.titleImg h3{
+text-align: center;
+margin-top: -5px;
+}
+
+.titleImg img{
+    height: 250px;
+    width: 300px;
+    border-radius: 40px;
+    margin: 0 20px;
+    object-fit: cover;
+}
+
+.titleImg img:hover{
+    box-shadow: 0 4px 20px #000;
+transition: box-shadow .3s;
+}
+
+.dataDog{
+    width: 75%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.DataDogDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.DataDogDiv div{
+margin: 20px 0;
+}
+
+.dataDog h4{
+position: relative;
+text-align: center;
+}
+
+.dataDog h5{
+position: relative;
+text-align: center;
+}

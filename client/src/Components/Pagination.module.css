@@ -1,0 +1,29 @@
+.pagesButtons{
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--verdeClaro);
+}
+
+.pagesButtons button{
+    border-radius: 15px;
+    border:none;
+    background: none;
+    cursor: pointer;
+    margin: 4px 10px;
+}
+
+.DogsContainer{
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.failSearch{
+    position: relative;
+    text-align: center;
+    top:50px;
+    font-size: 20px;
+}

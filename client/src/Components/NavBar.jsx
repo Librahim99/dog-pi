@@ -13,7 +13,6 @@ import s from './NavBar.module.css'
 
 
 export default function NavBar() {
-    // let temperaments = useSelector((state) => state.temperaments)
     let dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchTemperaments())

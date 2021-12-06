@@ -7,7 +7,4 @@ export default function Dogs(){
         <Pagination></Pagination>
     )
     }
-    else return (
-        <div>There is no dog with that name :/</div>
-    )
 }
