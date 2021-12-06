@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { searchDogs } from "../Store/Actions";
+import s from './NavBar.module.css'
+
 
 export default function SearchBar() {
     const [search, setSearch] = useState('');
@@ -20,7 +22,7 @@ export default function SearchBar() {
     return <div>
     <form onSubmit={onSubmit}>
         <input type="text" onChange={onInputChange}/>
-        <input type='submit' value='Search'/>
+        <input className={s.searchBarButton} type='submit' value='Search'/>
     </form>
         </div>
    

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import {ASCENDANT, DESCENDANT} from '../Const/sort'
 import { sort } from "../Store/Actions"
-
+import s from './NavBar.module.css'
 
 export default function Order() {
     const dispatch= useDispatch()

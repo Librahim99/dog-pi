@@ -28,6 +28,10 @@ export default function NavBar() {
                 <h1>MY DOGS APP</h1>
             </div>
             <div className={s.buttons}>
+                <div>
+                </div>
+                <div>
+                </div>
             <Link to="/home/favorites"><button>Favorites</button></Link>
             <Link to="/home/create"><button>Create Dog</button></Link>
             </div>
@@ -35,20 +39,16 @@ export default function NavBar() {
             <SearchBar/>
             </div>
             </div>
+            <div className={s.ordersFilters}>
             <div className={s.orders}>
             <h4>Order:</h4>
-            <div>
             <Order/>
             <OrderByWeight/>
-            </div>
-            <div>
             <OrderByHeight/>
             <OrderByLifeSpan/>
             </div>
-            </div>
             <div className={s.filters}>
             <h4>Filter:</h4>
-            <div>
             <Filter/>
             <FilterApiDb/>
             </div>
