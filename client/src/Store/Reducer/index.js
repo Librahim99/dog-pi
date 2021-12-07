@@ -31,7 +31,7 @@ import { FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FI
                 }
 
         case SORT:
-            let orderedDogs= [...state.dogs]
+            let orderedDogs= [...state.filteredDogs]
             if(action.payload !== "-"){
                 orderedDogs= orderedDogs.sort((a,b)=>{
                     if(a.name < b.name){
@@ -48,7 +48,7 @@ import { FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FI
                 }
             } else return {
                 ...state,
-                filteredDogs: [...state.dogs]
+                filteredDogs: [...state.filteredDogs]
             }
 
         case FILTER_BY_ORIGIN:
@@ -79,11 +79,12 @@ import { FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FI
             }
 
         case FILTER_BY_TEMP:
-            let filterByTemp = [...state.dogs]
+            let allDogs = [...state.dogs]
+            let filterByTemp = [...state.filteredDogs]
             if(action.payload === "-"){
                 return {
                     ...state,
-                    filteredDogs: filterByTemp
+                    filteredDogs: allDogs
                 }
             }
             let filteredByTemp = filterByTemp.filter((d) => {
@@ -99,7 +100,7 @@ import { FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FI
             }
 
         case SORT_BY_WEIGHT:
-            let orderedByWeightDogs= [...state.dogs]
+            let orderedByWeightDogs= [...state.filteredDogs]
             if(action.payload !== "-"){
                 orderedByWeightDogs= orderedByWeightDogs.sort((a,b)=>{
                     if(parseInt(a.min_weight) <= parseInt(b.min_weight)){
@@ -116,11 +117,11 @@ import { FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FI
                 }
             }else return{
                 ...state,
-                filteredDogs: [...state.dogs]
+                filteredDogs: [...state.filteredDogs]
             }
 
         case SORT_BY_HEIGHT:
-        let orderedByHeightDogs= [...state.dogs]
+        let orderedByHeightDogs= [...state.filteredDogs]
         if(action.payload !== "-"){
             orderedByHeightDogs= orderedByHeightDogs.sort((a,b)=>{
                 if(parseInt(a.min_height) <= parseInt(b.min_height)){
@@ -137,11 +138,11 @@ import { FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FI
             }
         }else return{
             ...state,
-            filteredDogs: [...state.dogs]
+            filteredDogs: [...state.filteredDogs]
         }
 
         case SORT_BY_LIFE_SPAN :
-        let orderedByLifeSpanDogs= [...state.dogs]
+        let orderedByLifeSpanDogs= [...state.filteredDogs]
         if(action.payload !== "-"){
             orderedByLifeSpanDogs= orderedByLifeSpanDogs.sort((a,b)=>{
                 if(parseInt(a.life_span.split(" ")[0]) <= parseInt(b.life_span.split(" ")[0])){
@@ -158,7 +159,7 @@ import { FETCH_DOGS, SEARCH_DOGS, FETCH_TEMPERAMENTS, SORT, FILTER_BY_ORIGIN, FI
             }
         }else return{
             ...state,
-            filteredDogs: [...state.dogs]
+            filteredDogs: [...state.filteredDogs]
         }
 
         case ADD_TO_FAVORITES:

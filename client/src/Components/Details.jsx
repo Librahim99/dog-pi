@@ -19,7 +19,6 @@ export default function Details() {
     if((favorites.find((f) => f.id === foundDog.id))){
         isFavorite= true
     }
-
     const onFavClick = function(){
         if(!isFavorite){
             isFavorite = true 
@@ -31,7 +30,6 @@ export default function Details() {
         }
     }
     let star = ""
-
         if(isFavorite){
             star = "★"
         }

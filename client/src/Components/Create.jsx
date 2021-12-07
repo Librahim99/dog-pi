@@ -25,8 +25,13 @@ export default function Create() {
     const validate= function(input){
         let errors= {}
         if(input.name === "" || !input.image || !input.min_weight || !input.max_weight || !input.min_height || !input.max_height || !input.life_span ){
-            errors.msg = "all fields must be completed"
-        }
+            errors.msg = "Complete all fields"
+        } else if(isNaN(input.min_weight) || isNaN(input.max_weight) || isNaN(input.min_height) || isNaN(input.max_height)){
+            errors.msg = "Weight and Height must be numbers"
+        } 
+        else if( parseInt(input.min_weight) <= 0 || parseInt(input.max_weight) <= 0 || parseInt(input.min_height) <= 0 || parseInt(input.max_height) <= 0 || parseInt(input.life_span) <= 0){
+            errors.msg = "Data cannot be negative or 0"
+        } 
         return errors
     }
 
@@ -123,7 +128,7 @@ export default function Create() {
                         return <option value={t.name} >{t.name}</option>
                     })}
                 </select> 
-                <p></p>
+                <p> {errors.msg} </p>
             </div>            
             <button type="submit" disabled={ errors.msg !== undefined || input.name === "" ? true : false}>Create</button>
         </form>
