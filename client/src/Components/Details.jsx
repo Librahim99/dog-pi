@@ -1,8 +1,7 @@
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux"
-import { addToFavorites, fetchDogs, removeFromFavorites } from "../Store/Actions";
+import { addToFavorites, removeFromFavorites } from "../Store/Actions";
 import s from './Details.module.css'
-import { useEffect } from "react";
 
 
 

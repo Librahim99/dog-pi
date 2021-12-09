@@ -12,7 +12,7 @@ export default function Order() {
     return (
         <div>
         <select  name="order" onChange={onOrderChange}>
-        <option value="-" selected>Alphabetically</option>
+        <option value="-">Alphabetically</option>
             <option value={ASCENDANT}>Ascendant</option>
             <option value={DESCENDANT}>Descendant</option>
             </select>

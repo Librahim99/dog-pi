@@ -12,7 +12,7 @@ export default function OrderByHeight() {
     return (
         <div>
         <select name="order" onChange={onOrderChange}>
-        <option value="-" selected>By height</option>
+        <option value="-">By height</option>
             <option value={ASCENDANT}>Ascendant</option>
             <option value={DESCENDANT}>Descendant</option>
             </select>

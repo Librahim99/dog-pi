@@ -12,7 +12,7 @@ export default function OrderByLifeSpan() {
     return (
         <div>
         <select name="order" onChange={onOrderChange}>
-        <option value="-" selected>By life span</option>
+        <option value="-">By life span</option>
             <option value={ASCENDANT}>Ascendant</option>
             <option value={DESCENDANT}>Descendant</option>
             </select>

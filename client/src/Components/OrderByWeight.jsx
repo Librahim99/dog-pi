@@ -13,7 +13,7 @@ export default function OrderByWeight() {
     return (
         <div>
         <select name="order" onChange={onOrderChange}>
-        <option value="-" selected>By weight</option>
+        <option value="-">By weight</option>
             <option value={ASCENDANT}>Ascendant</option>
             <option value={DESCENDANT}>Descendant</option>
             </select>
